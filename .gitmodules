@@ -1,0 +1,3 @@
+[submodule "src/InferSent"]
+	path = src/InferSent
+	url = https://github.com/lberrada/InferSent
