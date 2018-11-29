@@ -1,6 +1,6 @@
 # Deep Frank-Wolfe For Neural Network Optimization
 
-This repository contains the implementation of the paper [Deep Frank-Wolfe For Neural Network Optimization](https://openreview.net/forum?id=SyVU6s05K7) in pytorch. If you use this work for your research, please cite the paper:
+This repository contains the implementation of the paper [Deep Frank-Wolfe For Neural Network Optimization](https://arxiv.org/abs/1811.07591) in pytorch. If you use this work for your research, please cite the paper:
 
 ```
 @Article{berrada2018deep,

@@ -7,7 +7,7 @@ from collections import defaultdict
 
 class DFW(optim.Optimizer):
     r"""
-    Implements Deep Frank Wolfe: https://openreview.net/forum?id=SyVU6s05K7.
+    Implements Deep Frank Wolfe: https://arxiv.org/abs/1811.07591.
     Nesterov momentum is the *standard formula*, and differs
     from pytorch NAG implementation.
 
@@ -34,7 +34,7 @@ class DFW(optim.Optimizer):
         that gives the current value of the loss function (without the regularization).
 
         For more details, see:
-        https://openreview.net/forum?id=SyVU6s05K7.
+        https://arxiv.org/abs/1811.07591.
     """
 
     def __init__(self, params, eta=required, momentum=0, weight_decay=0, eps=1e-5):
