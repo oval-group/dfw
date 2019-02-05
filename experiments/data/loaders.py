@@ -61,7 +61,7 @@ def create_loaders(dataset_train, dataset_val, dataset_test,
 
 def loaders_mnist(dataset, batch_size=64, cuda=0,
                   train_size=50000, val_size=10000, test_size=10000,
-                  test_batch_size=1000, augment=False, **kwargs):
+                  test_batch_size=1000, **kwargs):
 
     assert dataset == 'mnist'
     root = '{}/{}'.format(os.environ['VISION_DATA'], dataset)
@@ -86,11 +86,10 @@ def loaders_mnist(dataset, batch_size=64, cuda=0,
 
 
 def loaders_cifar(dataset, batch_size, cuda,
-                  train_size=45000, augment=False, val_size=5000, test_size=10000,
+                  train_size=45000, augment=True, val_size=5000, test_size=10000,
                   test_batch_size=128, **kwargs):
 
     assert dataset in ('cifar10', 'cifar100')
-    # assert topk is None or topk == 1, "Top-k not wanted for CIFAR for now"
 
     root = '{}/{}'.format(os.environ['VISION_DATA'], dataset)
 
@@ -105,12 +104,14 @@ def loaders_cifar(dataset, batch_size, cuda,
         normalize])
 
     if augment:
+        print('Using data augmentation on CIFAR data set.')
         transform_train = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
             normalize])
     else:
+        print('Not using data augmentation on CIFAR data set.')
         transform_train = transform_test
 
     # define two datasets in order to have different transforms
@@ -148,12 +149,14 @@ def loaders_svhn(dataset, batch_size, cuda,
         normalize])
 
     if augment:
+        print('Using data augmentation on SVHN data set.')
         transform_train = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
             normalize])
     else:
+        print('Not using data augmentation on SVHN data set.')
         transform_train = transform_test
 
     # define two datasets in order to have different transforms

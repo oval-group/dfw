@@ -1,7 +1,7 @@
 import torch.optim
 
-from .bpgrad import BPGrad
-from .dfw import DFW
+from dfw import DFW
+from dfw.baselines import BPGrad
 
 
 def get_optimizer(args, parameters):

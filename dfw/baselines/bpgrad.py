@@ -77,10 +77,11 @@ class BPGrad(optim.Optimizer):
         for group in self.param_groups:
             L = group['L']
             mu = group['momentum']
-            for p in group['params']:
-                v = self.state[p]['v']
-                v *= mu
-                v -= step_size / L * p.grad.data
-                p.data += v
+            if mu:
+                for p in group['params']:
+                    v = self.state[p]['v']
+                    v *= mu
+                    v -= step_size / L * p.grad.data
+                    p.data += v
 
         self.gamma = step_size

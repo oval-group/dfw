@@ -27,9 +27,9 @@ def _add_dataset_parser(parser):
                           help="val data size")
     d_parser.add_argument('--test-size', type=int, default=None,
                           help="test data size")
-    d_parser.add_argument('--no-data-augmentation', dest='data_aug',
-                          action='store_false', help='no data augmentation')
-    d_parser.set_defaults(data_aug=True)
+    d_parser.add_argument('--data-augmentation', dest='augment',
+                          action='store_true', help='use data augmentation')
+    d_parser.set_defaults(augment=False)
 
 
 def _add_model_parser(parser):

@@ -1,5 +1,5 @@
 import torch.nn as nn
-from losses.hinge import MultiClassHingeLoss, set_smoothing_enabled
+from dfw.losses import MultiClassHingeLoss, set_smoothing_enabled
 
 
 def get_loss(args):
