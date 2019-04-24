@@ -1,8 +1,6 @@
-torch==0.4.1
 numpy
+nltk
+torchvision>=0.2
+torch>=1.0
 tqdm
-torchvision==0.2.1
-git+git://github.com/oval-group/logger@dev
-visdom<=0.1.7; python_version < '3.0'
-visdom<=0.1.8.4; python_version >= '3.0'
-waitGPU==0.0.3
+mlogger
