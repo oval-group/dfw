@@ -62,6 +62,8 @@ class DFW(optim.Optimizer):
         for group in self.param_groups:
             wd = group['weight_decay']
             for param in group['params']:
+                if param.grad is None:
+                    continue
                 w_dict[param]['delta_t'] = param.grad.data
                 w_dict[param]['r_t'] = wd * param.data
 
@@ -71,6 +73,8 @@ class DFW(optim.Optimizer):
             eta = group['eta']
             mu = group['momentum']
             for param in group['params']:
+                if param.grad is None:
+                    continue
                 state = self.state[param]
                 delta_t, r_t = w_dict[param]['delta_t'], w_dict[param]['r_t']
 
@@ -94,6 +98,8 @@ class DFW(optim.Optimizer):
         for group in self.param_groups:
             eta = group['eta']
             for param in group['params']:
+                if param.grad is None:
+                    continue
                 delta_t, r_t = w_dict[param]['delta_t'], w_dict[param]['r_t']
                 num -= eta * torch.sum(delta_t * r_t)
                 denom += eta * delta_t.norm() ** 2
