@@ -11,6 +11,8 @@ This repository contains the implementation of the paper [Deep Frank-Wolfe For N
 }
 ```
 
+**Note:** you might be interested in our follow-up algorithm [ALI-G](https://github.com/oval-group/ali-g), which has explicit convergence guarantees and outperforms DFW in our experiments.
+
 ## Requirements
 
 This code should work for pytorch >= 1.0 in python3. Detailed requirements are available in `requirements.txt`.
